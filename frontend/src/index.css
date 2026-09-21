@@ -1,0 +1,725 @@
+﻿/* =========================================================
+   SMART KISAN - LIGHT MODERN UI
+   VISUAL ONLY - NO APP LOGIC CHANGES
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --green: #2f7d4a;
+  --green-dark: #245f38;
+  --green-soft: #e9f5ec;
+  --green-pale: #f5faf6;
+
+  --text: #24352a;
+  --muted: #6b7b70;
+
+  --border: #cfe2d4;
+  --border-light: #e1ece4;
+
+  --white: #ffffff;
+  --cream: #fbfdfb;
+
+  --shadow: 0 6px 22px rgba(38, 80, 50, 0.07);
+  --shadow-hover: 0 10px 28px rgba(38, 80, 50, 0.12);
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+  background: #f5faf6;
+}
+
+body {
+  margin: 0 !important;
+  background: #f5faf6 !important;
+  color: var(--text) !important;
+
+  font-family:
+    "Inter",
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family:
+    "Inter",
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  color: var(--green-dark) !important;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 42px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+}
+
+h2 {
+  font-size: 28px !important;
+  line-height: 1.25 !important;
+  font-weight: 750 !important;
+}
+
+h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.page-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 30px 24px 60px !important;
+}
+
+/* =========================================================
+   HERO - LIGHT
+   ========================================================= */
+
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    #f5fbf6,
+    #e8f5eb
+  ) !important;
+
+  border: 2px solid #c9dfcf !important;
+  border-radius: 24px !important;
+
+  box-shadow: var(--shadow) !important;
+
+  padding: 55px 45px !important;
+  margin-bottom: 32px !important;
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section h3 {
+  color: var(--green-dark) !important;
+}
+
+.hero-section p {
+  color: #617267 !important;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.hero-section span,
+.badge {
+  display: inline-block;
+
+  background: #ffffff !important;
+  color: var(--green-dark) !important;
+
+  border: 1px solid #bfd8c6 !important;
+  border-radius: 999px !important;
+
+  padding: 7px 13px !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* =========================================================
+   ALL CARDS - IMPORTANT
+   ========================================================= */
+
+.card,
+.page-container .card {
+  background: #ffffff !important;
+
+  border: 2px solid var(--border) !important;
+  border-radius: 18px !important;
+
+  box-shadow: var(--shadow) !important;
+
+  padding: 22px !important;
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease !important;
+}
+
+.card:hover,
+.page-container .card:hover {
+  border-color: #a9cdb2 !important;
+  box-shadow: var(--shadow-hover) !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SECTION SEPARATION
+   ========================================================= */
+
+.page-container section {
+  margin-bottom: 34px;
+}
+
+.page-container section h2 {
+  margin-bottom: 20px !important;
+}
+
+/* =========================================================
+   SECTION TITLE ACCENT
+   ========================================================= */
+
+.page-container section h2::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+  height: 3px;
+
+  margin-top: 8px;
+
+  border-radius: 5px;
+
+  background: #78ad87;
+}
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.page-container .card strong {
+  color: var(--green-dark) !important;
+  font-weight: 750 !important;
+}
+
+.page-container .card strong[style*="font-size"] {
+  color: var(--green) !important;
+}
+
+/* =========================================================
+   WEATHER CARDS
+   ========================================================= */
+
+.page-container .card {
+  border-color: var(--border) !important;
+}
+
+/* =========================================================
+   CROP CALENDAR
+   ========================================================= */
+
+.page-container .card[style*="border-left"] {
+  border-left: 5px solid #77a985 !important;
+
+  background: #fbfefb !important;
+}
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.page-container .card h3 {
+  color: var(--green-dark) !important;
+  margin-top: 0;
+}
+
+.page-container .card a {
+  color: var(--green) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.page-container .card a:hover {
+  color: var(--green-dark) !important;
+}
+
+/* =========================================================
+   LIVE BADGES
+   ========================================================= */
+
+.page-container .card span {
+  border: 1px solid #b9d9c1 !important;
+  border-radius: 999px !important;
+
+  background: #edf8f0 !important;
+  color: #347448 !important;
+
+  font-weight: 600 !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  font-family: "Inter", sans-serif !important;
+
+  border-radius: 11px !important;
+
+  padding: 11px 20px !important;
+
+  font-size: 14px !important;
+  font-weight: 650 !important;
+
+  border: 1.5px solid #2f7d4a !important;
+
+  background: #2f7d4a !important;
+  color: #ffffff !important;
+
+  box-shadow: 0 4px 12px rgba(47,125,74,.12) !important;
+
+  transition: all .2s ease !important;
+}
+
+.btn:hover {
+  background: #286b40 !important;
+  border-color: #286b40 !important;
+
+  transform: translateY(-1px) !important;
+}
+
+.btn-outline {
+  background: #ffffff !important;
+  color: #2f7d4a !important;
+
+  border: 1.5px solid #86b497 !important;
+}
+
+.btn-outline:hover {
+  background: #edf7ef !important;
+  color: #245f38 !important;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  background: #ffffff !important;
+
+  color: var(--text) !important;
+
+  border: 1.5px solid #cbded0 !important;
+
+  border-radius: 10px !important;
+
+  padding: 11px 13px !important;
+
+  font-family: "Inter", sans-serif !important;
+
+  font-size: 14px !important;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #a9c9b1 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+
+  border-color: #6da37b !important;
+
+  box-shadow:
+    0 0 0 3px rgba(109,163,123,.12) !important;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table {
+  width: 100%;
+
+  background: #ffffff !important;
+
+  border: 2px solid var(--border) !important;
+
+  border-radius: 14px !important;
+
+  overflow: hidden !important;
+
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+th {
+  background: #eef7f0 !important;
+  color: #315e3d !important;
+
+  font-weight: 700 !important;
+
+  border-bottom: 1px solid #d4e5d8 !important;
+}
+
+td {
+  color: #4d5f53 !important;
+
+  border-bottom: 1px solid #e3ece5 !important;
+}
+
+th,
+td {
+  padding: 13px 15px !important;
+}
+
+tr:hover td {
+  background: #f8fcf9 !important;
+}
+
+/* =========================================================
+   MODEL PERFORMANCE
+   ========================================================= */
+
+.page-container [style*="justify-content: space-between"] {
+  border-bottom: 1px solid #e3ece5 !important;
+  padding: 12px 5px !important;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+  background: #ffffff !important;
+
+  border-bottom: 1px solid #dbe8de !important;
+
+  box-shadow: 0 3px 15px rgba(38,80,50,.05) !important;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: var(--green) !important;
+}
+
+a:hover {
+  color: var(--green-dark) !important;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.page-container section:last-child {
+  border: 2px solid #cfe2d4 !important;
+  border-radius: 22px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .page-container {
+    padding: 20px 15px 45px !important;
+  }
+
+  .hero-section {
+    padding: 35px 22px !important;
+    border-radius: 20px !important;
+  }
+
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+
+  .card,
+  .page-container .card {
+    border-width: 1.5px !important;
+    border-radius: 15px !important;
+    padding: 18px !important;
+  }
+}
+
+/* =========================================================
+   SMART KISAN - ELEGANT GREEN FINAL UI
+   ========================================================= */
+
+:root {
+  --sk-elegant-green: #28734a;
+  --sk-elegant-dark: #1f5939;
+  --sk-elegant-light: #eaf4ed;
+  --sk-elegant-pale: #f7fbf8;
+  --sk-border: #cddfd2;
+  --sk-border-light: #dfeae2;
+  --sk-text: #293a30;
+  --sk-muted: #68776e;
+}
+
+/* ---------- PAGE ---------- */
+
+body {
+  background: #f7faf8 !important;
+  color: var(--sk-text) !important;
+}
+
+/* ---------- HEADINGS ---------- */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--sk-elegant-dark) !important;
+  font-family: "Inter", "Segoe UI", sans-serif !important;
+  font-weight: 750 !important;
+}
+
+/* ---------- HERO ---------- */
+
+.hero-section {
+  background:
+    linear-gradient(
+      135deg,
+      #f3f9f5 0%,
+      #e7f2ea 100%
+    ) !important;
+
+  border: 1px solid #bfd5c5 !important;
+  border-radius: 24px !important;
+
+  box-shadow:
+    0 8px 30px rgba(31,89,57,.08) !important;
+}
+
+.hero-section h1 {
+  color: #1f5939 !important;
+}
+
+.hero-section p {
+  color: #637168 !important;
+}
+
+/* ---------- HERO BADGES ---------- */
+
+.hero-section span {
+  background: #ffffff !important;
+  color: #28734a !important;
+
+  border: 1px solid #c7dbcc !important;
+  border-radius: 20px !important;
+
+  font-weight: 650 !important;
+}
+
+/* =========================================================
+   NAVIGATION TABS
+   ========================================================= */
+
+nav a {
+  display: inline-block !important;
+
+  color: #345542 !important;
+
+  font-weight: 700 !important;
+
+  text-decoration: none !important;
+
+  padding: 7px 12px !important;
+  margin: 2px 3px !important;
+
+  border: 1px solid transparent !important;
+  border-radius: 9px !important;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    color .18s ease !important;
+}
+
+nav a:hover {
+  background: #eef6f0 !important;
+
+  color: #1f5939 !important;
+
+  border-color: #cbded0 !important;
+}
+
+/* Home / active-looking tab */
+nav a[href="/"] {
+  background: #f0f7f2 !important;
+
+  color: #1f5939 !important;
+
+  border: 1px solid #c6dbcc !important;
+
+  font-weight: 800 !important;
+}
+
+/* Login / Register */
+nav a[href="/login"],
+nav a[href="/register"] {
+  background: #ffffff !important;
+
+  color: #28734a !important;
+
+  border: 1px solid #bfd5c5 !important;
+
+  font-weight: 750 !important;
+}
+
+/* ---------- CARDS ---------- */
+
+.card,
+.page-container .card {
+  background: #ffffff !important;
+
+  border: 1px solid var(--sk-border) !important;
+
+  border-radius: 17px !important;
+
+  box-shadow:
+    0 5px 20px rgba(31,89,57,.06) !important;
+}
+
+.card:hover,
+.page-container .card:hover {
+  border-color: #a9c8b2 !important;
+
+  box-shadow:
+    0 9px 27px rgba(31,89,57,.10) !important;
+}
+
+/* ---------- CARD HEADINGS ---------- */
+
+.card h3 {
+  color: #285f40 !important;
+  font-weight: 700 !important;
+}
+
+/* ---------- GREEN VALUES ---------- */
+
+.page-container .card strong {
+  color: #28734a !important;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  background: #28734a !important;
+
+  border: 1px solid #22623f !important;
+
+  border-radius: 10px !important;
+
+  color: #ffffff !important;
+
+  font-weight: 700 !important;
+
+  box-shadow:
+    0 4px 12px rgba(40,115,74,.12) !important;
+}
+
+.btn:hover {
+  background: #1f5939 !important;
+  border-color: #1f5939 !important;
+}
+
+.btn-outline {
+  background: #ffffff !important;
+
+  color: #28734a !important;
+
+  border: 1px solid #9fbea8 !important;
+}
+
+/* ---------- SECTION ACCENT ---------- */
+
+.page-container section h2::after {
+  background: #6fa281 !important;
+
+  height: 3px !important;
+  width: 42px !important;
+}
+
+/* ---------- LINKS ---------- */
+
+.page-container .card a {
+  color: #28734a !important;
+  font-weight: 700 !important;
+}
+
+/* ---------- LIVE ---------- */
+
+.page-container .card span {
+  background: #edf6ef !important;
+
+  color: #39704e !important;
+
+  border: 1px solid #c8ddce !important;
+}
+
+/* ---------- TABLE ---------- */
+
+table {
+  border: 1px solid #cfdfd3 !important;
+}
+
+th {
+  background: #edf6ef !important;
+  color: #285f40 !important;
+}
+
+/* ---------- FINAL CTA ---------- */
+
+.page-container section:last-child {
+  border: 1px solid #c7dbcc !important;
+
+  background: #f2f8f4 !important;
+
+  border-radius: 21px !important;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+  nav a {
+    padding: 6px 9px !important;
+    margin: 2px !important;
+    font-size: 13px !important;
+  }
+}
+
