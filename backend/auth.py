@@ -1,4 +1,5 @@
-﻿from datetime import datetime, timedelta
+import os
+from datetime import datetime, timedelta
 from typing import Optional
 
 import jwt
@@ -10,7 +11,9 @@ from sqlalchemy.orm import Session
 from . import database, models
 
 
-SECRET_KEY = "smart_kisan_secret_key_change_in_production"
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY environment variable is required.")
 ALGORITHM = "HS256"
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

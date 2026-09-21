@@ -1,4 +1,4 @@
-﻿import os
+import os
 import re
 from pathlib import Path
 import httpx
@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 
 ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
-WHATSAPP_PHONE_ID = "1267685809768077"
+WHATSAPP_PHONE_ID = os.getenv("WHATSAPP_PHONE_ID", "")
 WHATSAPP_API_URL = f"https://graph.facebook.com/v19.0/{WHATSAPP_PHONE_ID}/messages"
 
 def _get_token():
@@ -178,7 +178,7 @@ def notify_profit_alert(phone, farmer_name, crop, acres, total_yield, revenue, t
     })
 
 def send_crop_template(phone, farmer_name, top_crop, confidence):
-    """Use approved template — works for ANY number without daily opt-in."""
+    """Use approved template - works for ANY number without daily opt-in."""
     return _send({
         "messaging_product": "whatsapp",
         "to": _e164(phone),
