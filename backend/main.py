@@ -52,7 +52,7 @@ app.include_router(whatsapp_router.router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:3000")],
+    allow_origins=[os.getenv("FRONTEND_URL")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -1373,4 +1373,3 @@ def profit_estimate(data: ProfitEstimateRequest):
         "cost_per_acre": round(total_cost / data.acres, 2),
         "status": "profit" if profit >= 0 else "loss",
     }
-

@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://127.0.0.1:8001",
+  baseURL: process.env.REACT_APP_API_URL,
   timeout: 30000,
 });
 
@@ -177,4 +177,3 @@ export const sendWhatsAppTehsil = (data) => API.post('/notify/tehsil', data);
 export const addWhatsAppRecipient = (data) => API.post('/notify/recipients', data);
 export const getWhatsAppRecipients = () => API.get('/notify/recipients');
 export const deleteWhatsAppRecipient = (id) => API.delete("/notify/recipients/" + id);
-
