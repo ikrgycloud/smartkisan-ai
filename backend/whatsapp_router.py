@@ -14,7 +14,7 @@ from .whatsapp_service import (
     notify_tehsil_alert,
 )
 
-router = APIRouter(prefix="/notify", tags=["WhatsApp"])
+router = APIRouter(prefix="/API/notify", tags=["WhatsApp"])
 
 
 class CropAlertRequest(BaseModel):

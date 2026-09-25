@@ -40,6 +40,9 @@ app = FastAPI(
     title="Smart Kisan API",
     description="AI-powered crop recommendation backend",
     version="1.0.0",
+    docs_url="/API/docs",
+    redoc_url="/API/redoc",
+    openapi_url="/API/openapi.json",
 )
 
 
@@ -91,7 +94,7 @@ def health():
 # ============================================================
 
 @app.post(
-    "/register",
+    "/API/register",
     response_model=schemas.UserOut,
     tags=["Auth"],
 )
@@ -128,7 +131,7 @@ def register(
 
 
 @app.post(
-    "/login",
+    "/API/login",
     response_model=schemas.Token,
     tags=["Auth"],
 )
@@ -167,7 +170,7 @@ def login(
 # ============================================================
 
 @app.get(
-    "/me",
+    "/API/me",
     response_model=schemas.UserOut,
     tags=["User"],
 )
@@ -180,7 +183,7 @@ def get_me(
 
 
 @app.put(
-    "/me",
+    "/API/me",
     response_model=schemas.UserOut,
     tags=["User"],
 )
@@ -207,7 +210,7 @@ def update_me(
 # ============================================================
 
 @app.post(
-    "/predict",
+    "/API/predict",
     response_model=schemas.PredictionOut,
     tags=["Prediction"],
 )
@@ -249,7 +252,7 @@ def crop_predict(
 
 
 @app.post(
-    "/predict/guest",
+    "/API/predict/guest",
     response_model=schemas.PredictionOut,
     tags=["Prediction"],
 )
@@ -270,7 +273,7 @@ def crop_predict_guest(
 # ============================================================
 
 @app.get(
-    "/history",
+    "/API/history",
     response_model=List[schemas.PredictionRecord],
     tags=["History"],
 )
@@ -296,7 +299,7 @@ def get_history(
 
 
 @app.delete(
-    "/history/{prediction_id}",
+    "/API/history/{prediction_id}",
     tags=["History"],
 )
 def delete_prediction(
@@ -335,7 +338,7 @@ def delete_prediction(
 # ============================================================
 
 @app.post(
-    "/farm",
+    "/API/farm",
     response_model=schemas.FarmOut,
     tags=["Farm"],
 )
@@ -377,7 +380,7 @@ def create_farm(
 
 
 @app.get(
-    "/farm",
+    "/API/farm",
     response_model=schemas.FarmOut,
     tags=["Farm"],
 )
@@ -406,7 +409,7 @@ def get_farm(
 
 
 @app.put(
-    "/farm",
+    "/API/farm",
     response_model=schemas.FarmOut,
     tags=["Farm"],
 )
@@ -451,7 +454,7 @@ def update_farm(
 # ============================================================
 
 @app.get(
-    "/stats",
+    "/API/stats",
     tags=["Stats"],
 )
 def get_stats(
@@ -479,7 +482,7 @@ def get_stats(
 # ============================================================
 
 @app.get(
-    "/mandi-prices",
+    "/API/mandi-prices",
     tags=["Mandi Prices"],
 )
 def get_mandi_prices():
@@ -491,7 +494,7 @@ def get_mandi_prices():
 # ============================================================
 
 @app.post(
-    "/disease/analyze",
+    "/API/disease/analyze",
     tags=["Crop Disease"],
 )
 async def analyze_disease(
@@ -594,7 +597,7 @@ def normalize_text(value):
     Normalizes text received from reverse geocoding.
 
     Fixes common encoding problems such as:
-        MedchalâMalkajgiri
+        MedchalÃ¢Malkajgiri
     """
 
     if value is None:
@@ -604,20 +607,20 @@ def normalize_text(value):
 
     # Common mojibake correction
     replacements = {
-        "â€“": "-",
-        "â€”": "-",
-        "â€": "",
-        "â€™": "'",
-        "â€œ": '"',
-        "â€�": '"',
-        "â„¢": "",
-        "Â": "",
+        "Ã¢â‚¬â€œ": "-",
+        "Ã¢â‚¬â€": "-",
+        "Ã¢â‚¬": "",
+        "Ã¢â‚¬â„¢": "'",
+        "Ã¢â‚¬Å“": '"',
+        "Ã¢â‚¬ï¿½": '"',
+        "Ã¢â€žÂ¢": "",
+        "Ã‚": "",
     }
 
     for old, new in replacements.items():
         value = value.replace(old, new)
 
-    value = value.replace("MedchalâMalkajgiri",
+    value = value.replace("MedchalÃ¢Malkajgiri",
                           "Medchal Malkajgiri")
 
     value = value.replace("Medchal-Malkajgiri",
@@ -675,7 +678,7 @@ def tehsil_json_safe(value):
 # ============================================================
 
 @app.get(
-    "/tehsil-options",
+    "/API/tehsil-options",
     tags=["Tehsil Analysis"],
 )
 def tehsil_options(
@@ -743,7 +746,7 @@ def tehsil_options(
 # ============================================================
 
 @app.get(
-    "/tehsil-analysis",
+    "/API/tehsil-analysis",
     tags=["Tehsil Analysis"],
 )
 def tehsil_analysis(
@@ -1049,7 +1052,7 @@ def find_dataset_tehsil(
 # ============================================================
 
 @app.get(
-    "/location/detect",
+    "/API/location/detect",
     tags=["Location"],
 )
 def detect_location(
@@ -1340,7 +1343,7 @@ class ProfitEstimateRequest(BaseModel):
     other_cost: float = Field(default=0, ge=0)
 
 
-@app.post("/profit-estimate", tags=["Profit Estimator"])
+@app.post("/API/profit-estimate", tags=["Profit Estimator"])
 def profit_estimate(data: ProfitEstimateRequest):
 
     total_production = data.acres * data.yield_per_acre

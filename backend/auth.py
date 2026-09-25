@@ -17,7 +17,7 @@ if not SECRET_KEY:
 ALGORITHM = "HS256"
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/API/login")
 
 
 def hash_password(password: str) -> str:
